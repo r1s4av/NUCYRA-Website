@@ -1,0 +1,449 @@
+{
+ "meta": {
+  "images": 2124,
+  "nuclei_measured": 48320,
+  "images_without_nuclei": 86,
+  "border_touching_percent": 30.8,
+  "nuclei_after_border_exclusion": 33459,
+  "min_nucleus_area_px": 10,
+  "source": "Computed from the 2,124 training .npy files (instance map = channel 3, type map = channel 4)"
+ },
+ "class_counts": [
+  {
+   "type": "Neoplastic",
+   "nuclei": 20360,
+   "percent": 42.14
+  },
+  {
+   "type": "Inflammatory",
+   "nuclei": 8037,
+   "percent": 16.63
+  },
+  {
+   "type": "Connective",
+   "nuclei": 12037,
+   "percent": 24.91
+  },
+  {
+   "type": "Dead",
+   "nuclei": 825,
+   "percent": 1.71
+  },
+  {
+   "type": "Epithelial",
+   "nuclei": 7061,
+   "percent": 14.61
+  }
+ ],
+ "type_medians": [
+  {
+   "type": "Neoplastic",
+   "n_nuclei": 13538,
+   "area": 618.0,
+   "perimeter": 95.497,
+   "circularity": 0.885,
+   "eccentricity": 0.698,
+   "solidity": 0.964,
+   "aspect_ratio": 1.396,
+   "mean_R": 131.635,
+   "mean_G": 91.758,
+   "mean_B": 140.867,
+   "glcm_contrast": 10.862,
+   "glcm_homogeneity": 0.59,
+   "glcm_energy": 0.179
+  },
+  {
+   "type": "Inflammatory",
+   "n_nuclei": 6149,
+   "area": 297.0,
+   "perimeter": 63.941,
+   "circularity": 0.928,
+   "eccentricity": 0.661,
+   "solidity": 0.96,
+   "aspect_ratio": 1.333,
+   "mean_R": 100.128,
+   "mean_G": 72.755,
+   "mean_B": 124.907,
+   "glcm_contrast": 15.023,
+   "glcm_homogeneity": 0.551,
+   "glcm_energy": 0.185
+  },
+  {
+   "type": "Connective",
+   "n_nuclei": 8374,
+   "area": 407.0,
+   "perimeter": 81.698,
+   "circularity": 0.81,
+   "eccentricity": 0.836,
+   "solidity": 0.951,
+   "aspect_ratio": 1.824,
+   "mean_R": 130.762,
+   "mean_G": 93.128,
+   "mean_B": 144.349,
+   "glcm_contrast": 16.035,
+   "glcm_homogeneity": 0.576,
+   "glcm_energy": 0.177
+  },
+  {
+   "type": "Dead",
+   "n_nuclei": 696,
+   "area": 103.0,
+   "perimeter": 37.314,
+   "circularity": 0.962,
+   "eccentricity": 0.725,
+   "solidity": 0.95,
+   "aspect_ratio": 1.452,
+   "mean_R": 108.061,
+   "mean_G": 72.585,
+   "mean_B": 127.985,
+   "glcm_contrast": 21.438,
+   "glcm_homogeneity": 0.442,
+   "glcm_energy": 0.17
+  },
+  {
+   "type": "Epithelial",
+   "n_nuclei": 4702,
+   "area": 480.0,
+   "perimeter": 83.841,
+   "circularity": 0.885,
+   "eccentricity": 0.723,
+   "solidity": 0.96,
+   "aspect_ratio": 1.447,
+   "mean_R": 118.137,
+   "mean_G": 85.602,
+   "mean_B": 139.984,
+   "glcm_contrast": 11.262,
+   "glcm_homogeneity": 0.674,
+   "glcm_energy": 0.229
+  }
+ ],
+ "stages": [
+  {
+   "stage": "Original",
+   "contrast_std": 39.1901,
+   "entropy": 6.9385,
+   "sharpness": 176.178,
+   "separation_dprime": 2.1801
+  },
+  {
+   "stage": "CLAHE",
+   "contrast_std": 55.383,
+   "entropy": 7.579,
+   "sharpness": 621.2511,
+   "separation_dprime": 1.8849
+  },
+  {
+   "stage": "Gaussian 3\u00d73",
+   "contrast_std": 38.1792,
+   "entropy": 6.8891,
+   "sharpness": 64.256,
+   "separation_dprime": 2.2252
+  },
+  {
+   "stage": "Median 3\u00d73",
+   "contrast_std": 38.4878,
+   "entropy": 6.8926,
+   "sharpness": 127.1065,
+   "separation_dprime": 2.2189
+  }
+ ],
+ "segmentation": [
+  {
+   "pipeline": "Otsu (gray)",
+   "dice": 0.5436,
+   "iou": 0.4004,
+   "precision": 0.4254,
+   "recall": 0.919,
+   "instance_precision": 0.117,
+   "instance_recall": 0.2344,
+   "instance_f1": 0.156,
+   "merged_components": 6364
+  },
+  {
+   "pipeline": "Gaussian + Otsu",
+   "dice": 0.5521,
+   "iou": 0.4093,
+   "precision": 0.4346,
+   "recall": 0.9227,
+   "instance_precision": 0.1357,
+   "instance_recall": 0.2383,
+   "instance_f1": 0.1729,
+   "merged_components": 6402
+  },
+  {
+   "pipeline": "CLAHE + Otsu",
+   "dice": 0.4856,
+   "iou": 0.3402,
+   "precision": 0.3613,
+   "recall": 0.8986,
+   "instance_precision": 0.0855,
+   "instance_recall": 0.2187,
+   "instance_f1": 0.123,
+   "merged_components": 7913
+  },
+  {
+   "pipeline": "Gaussian + Otsu + morphology",
+   "dice": 0.5609,
+   "iou": 0.4189,
+   "precision": 0.4448,
+   "recall": 0.9258,
+   "instance_precision": 0.1603,
+   "instance_recall": 0.2221,
+   "instance_f1": 0.1862,
+   "merged_components": 6446
+  },
+  {
+   "pipeline": "CLAHE + Gaussian + Otsu + morphology",
+   "dice": 0.5022,
+   "iou": 0.3563,
+   "precision": 0.3776,
+   "recall": 0.9083,
+   "instance_precision": 0.1103,
+   "instance_recall": 0.2083,
+   "instance_f1": 0.1442,
+   "merged_components": 8063
+  },
+  {
+   "pipeline": "Hematoxylin channel + Otsu + morphology",
+   "dice": 0.7112,
+   "iou": 0.5665,
+   "precision": 0.7225,
+   "recall": 0.7569,
+   "instance_precision": 0.292,
+   "instance_recall": 0.4218,
+   "instance_f1": 0.3451,
+   "merged_components": 6213
+  }
+ ],
+ "failure_examples": [
+  {
+   "failure_type": "Merged nuclei",
+   "file": "1772.npy",
+   "dice": 0.8536149046642524,
+   "precision": 0.801343491439338,
+   "recall": 0.9131814787154592,
+   "gt_instances": 39,
+   "merged_components": 11,
+   "missed_nuclei": 3
+  },
+  {
+   "failure_type": "Merged nuclei",
+   "file": "316.npy",
+   "dice": 0.8407309483141862,
+   "precision": 0.8280407429598562,
+   "recall": 0.8538161771694706,
+   "gt_instances": 39,
+   "merged_components": 10,
+   "missed_nuclei": 0
+  },
+  {
+   "failure_type": "Missed nuclei (pale or weakly stained)",
+   "file": "1210.npy",
+   "dice": 0.2598081952920663,
+   "precision": 0.849971477467199,
+   "recall": 0.1533395080786251,
+   "gt_instances": 14,
+   "merged_components": 0,
+   "missed_nuclei": 14
+  },
+  {
+   "failure_type": "Missed nuclei (pale or weakly stained)",
+   "file": "1208.npy",
+   "dice": 0.1689973222255281,
+   "precision": 0.8545636910732196,
+   "recall": 0.0937706361435175,
+   "gt_instances": 14,
+   "merged_components": 0,
+   "missed_nuclei": 14
+  },
+  {
+   "failure_type": "False positives (non-nuclear dark tissue)",
+   "file": "746.npy",
+   "dice": 0.0687232098938936,
+   "precision": 0.0389594869139146,
+   "recall": 0.291158082762727,
+   "gt_instances": 11,
+   "merged_components": 0,
+   "missed_nuclei": 6
+  },
+  {
+   "failure_type": "False positives (non-nuclear dark tissue)",
+   "file": "747.npy",
+   "dice": 0.1179120972541018,
+   "precision": 0.0720033224316046,
+   "recall": 0.325357729298616,
+   "gt_instances": 10,
+   "merged_components": 1,
+   "missed_nuclei": 6
+  }
+ ],
+ "ai": {
+  "test_crops": 4929,
+  "support": [
+   2059,
+   669,
+   1201,
+   122,
+   878
+  ],
+  "majority_baseline": 0.41773179143842565,
+  "cnn": {
+   "accuracy": 0.6622032866707243,
+   "macro_f1": 0.6144699129208002,
+   "weighted_f1": 0.6601358319539121,
+   "f1": [
+    0.7429940119760479,
+    0.5657781599312124,
+    0.6089965397923875,
+    0.5286343612334802,
+    0.6259464916708734
+   ],
+   "recall": [
+    0.7532782904322487,
+    0.491778774289985,
+    0.5861781848459617,
+    0.4918032786885246,
+    0.7061503416856492
+   ]
+  },
+  "decision_tree": {
+   "accuracy": 0.472509636843173,
+   "macro_f1": 0.4171307244945631,
+   "weighted_f1": 0.4884707604473651,
+   "f1": [
+    0.5634852393235884,
+    0.4496961512491559,
+    0.4251069900142653,
+    0.1750405186385737,
+    0.4723247232472324
+   ],
+   "recall": [
+    0.4774162214667314,
+    0.4977578475336323,
+    0.3721898417985012,
+    0.4426229508196721,
+    0.5831435079726651
+   ]
+  },
+  "cnn_confusion": [
+   [
+    1551,
+    63,
+    212,
+    32,
+    201
+   ],
+   [
+    97,
+    329,
+    112,
+    0,
+    131
+   ],
+   [
+    277,
+    58,
+    704,
+    13,
+    149
+   ],
+   [
+    41,
+    9,
+    10,
+    60,
+    2
+   ],
+   [
+    150,
+    35,
+    73,
+    0,
+    620
+   ]
+  ],
+  "dt_confusion": [
+   [
+    983,
+    175,
+    270,
+    178,
+    453
+   ],
+   [
+    67,
+    333,
+    84,
+    70,
+    115
+   ],
+   [
+    223,
+    179,
+    447,
+    160,
+    192
+   ],
+   [
+    24,
+    10,
+    16,
+    54,
+    18
+   ],
+   [
+    133,
+    115,
+    85,
+    33,
+    512
+   ]
+  ],
+  "cnn_confidence": {
+   "mean_correct": 0.7368321418762207,
+   "mean_wrong": 0.6051018834114075,
+   "wrong_with_conf_ge_0_8": 277,
+   "wrong_total": 1665
+  },
+  "note": "Both models evaluated on the same 4,929 held-out crops (split by source image). The Decision Tree was retrained on the CNN's training split so neither model has seen the test images."
+ },
+ "member2_segmentation": {
+  "images_evaluated": 502,
+  "image_set": "validation images 2124-2655 (30 of 532 have empty ground truth)",
+  "methods": [
+   {
+    "Method": "Otsu_dark",
+    "IoU": 0.3583,
+    "Dice": 0.4933,
+    "Precision": 0.3805,
+    "Recall": 0.9283,
+    "IoU_std": 0.204,
+    "Instance_precision": 0.1223,
+    "Instance_recall": 0.1929,
+    "Instance_F1": 0.1497
+   },
+   {
+    "Method": "HSV_purple",
+    "IoU": 0.2178,
+    "Dice": 0.3401,
+    "Precision": 0.2206,
+    "Recall": 0.9792,
+    "IoU_std": 0.1289,
+    "Instance_precision": 0.0166,
+    "Instance_recall": 0.0069,
+    "Instance_F1": 0.0097
+   },
+   {
+    "Method": "Hematoxylin",
+    "IoU": 0.5411,
+    "Dice": 0.6868,
+    "Precision": 0.7256,
+    "Recall": 0.7169,
+    "IoU_std": 0.1529,
+    "Instance_precision": 0.2515,
+    "Instance_recall": 0.448,
+    "Instance_F1": 0.3221
+   }
+  ]
+ }
+}

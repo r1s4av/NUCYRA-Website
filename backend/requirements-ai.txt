@@ -1,0 +1,2 @@
+-r requirements.txt
+tensorflow-cpu>=2.16   # optional: enables the CNN in /api/ai/predict-crop (Decision Tree works without it)
